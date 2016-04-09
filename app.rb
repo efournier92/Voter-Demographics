@@ -1,7 +1,6 @@
-sep1 = "****************************************"
-sep2 = "---------------------------------------"
-voter_sample =
-[
+SEP = "****************************************"
+LNE = "---------------------------------------"
+VOTERSAMPLE = [
   {
     first_name: 'Jon',
     last_name: 'Smith',
@@ -91,8 +90,7 @@ voter_sample =
     household_size: 2,
     gender: 'Male',
     education: 'College'
-  }
-]
+  }]
 
 voter_counter = 0
 total_age = 0.0
@@ -107,7 +105,7 @@ college_counter = 0
 hs_counter = 0
 dnc_hs_counter = 0
 
-voter_sample.each do |voter_hash|
+VOTERSAMPLE.each do |voter_hash|
   total_age += voter_hash[:age]
   total_income += voter_hash[:income]
   total_household += voter_hash[:household_size]
@@ -134,7 +132,7 @@ average_age = total_age / voter_counter
 average_income = total_income / voter_counter
 average_household = total_household / voter_counter
 
-puts "#{sep1}\n          VOTER DEMOGRAPHICS\n#{sep1}"
+puts "#{SEP}\n          VOTER DEMOGRAPHICS\n#{SEP}"
 puts "AGE AVERAGE:                 #{average_age}"
 puts "INCOME AVERAGE:              $#{"%.02f" % average_income}"
 puts "HOUSEHOLE SIZE AVERAGE:      #{average_household}"
@@ -143,11 +141,11 @@ female_percentage = (female_counter / voter_counter.to_f) * 100
 male_percentage = (male_counter / voter_counter.to_f) * 100
 unspecified_percentage = (unspecified_counter / voter_counter.to_f) * 100
 
-puts sep2
+puts LNE
 puts "FEMALE PERCENTAGE:           #{female_percentage.to_i} %"
 puts "MALE PERCENTAGE:             #{male_percentage.to_i} %"
 puts "UNSPECIFIED GENDER:          #{unspecified_percentage.to_i} %"
-puts sep2
+puts LNE
 
 college_percentage = (college_counter / voter_counter.to_f) * 100
 hs_percentage = (hs_counter / voter_counter.to_f) * 100
@@ -155,4 +153,4 @@ dnc_hs_percentage = (dnc_hs_counter / voter_counter.to_f) * 100
 
 puts "FINISHED COLLEGE:            #{college_percentage.to_i} %"
 puts "FINISHED HIGH SCHOOL:        #{hs_percentage.to_i} %"
-puts "DID NOT FINISH HIGH SCHOOL:  #{dnc_hs_percentage.to_i} %\n#{sep1}"
+puts "DID NOT FINISH HIGH SCHOOL:  #{dnc_hs_percentage.to_i} %\n#{SEP}"
